@@ -1,0 +1,5 @@
+export const GET_PRODUCTS = "GET_PRODUCTS";
+export const GET_CATEGORIES = "GET_CATEGORIES";
+export const ADD_TO_CART = "ADD_TO_CART";
+export const DELETE_FROM_CART = "DELETE_FROM_CART";
+export const DECREASE_ITEM_CART = "DECREASE_ITEM_CART";

@@ -1,0 +1,53 @@
+.field {
+  max-width: 400px;
+  position: relative;
+  border-radius: 8px;
+  overflow: hidden;
+  &__slot, &__icon, &__prepend-icon, &__input {
+    background-color: var(--text-input-field);
+  }
+  &__slot {
+    display: flex;
+    height: 100%;
+    position: relative;
+  }
+  &__input {
+    width: 100%;
+    border: none;
+    outline: none;
+    color: inherit;
+    font-family: inherit;
+    font-size: 1rem;
+    padding: 6px;
+    height: 40px;
+    box-sizing: border-box;
+    &::placeholder {
+      font-weight: 700;
+      opacity: 0.5;
+    }
+  }
+  &__label {
+    font-size: var(--sm);
+    font-weight: bold;
+    margin-bottom: 4px;
+  }
+  &--error {
+    .field__input {
+      border: 1px solid var(--error-color);
+    }
+    .field__label {
+      color: var(--error-color);
+    }
+  }
+  &__prepend-icon {
+    padding-left: .5rem;
+    display: grid;
+    place-items: center;
+    .icon {
+      opacity: 0.5;
+    }
+  }
+  @media screen and (min-width: 768px) {
+    width: 400px;
+  }
+}

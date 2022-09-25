@@ -1,0 +1,26 @@
+$base-color: rgb(250, 250, 250);
+$color: #061b28;
+
+:root {
+  --white: #FFFFFF;
+  --black: #000000;
+  --main-bg-color: #{$base-color};
+  --very-light-pink: #C7C7C7;
+  --light-gray: #767676;
+  --very-light-gray:  #efefef;
+  --text-input-field: #F7F7F7;
+  --hospital-green: #8dbe94;
+  --primary-color: #8dbe94;
+  --success-color: #566bbe;
+  --error-color: #d25050;
+  --white-transparent: rgba(250, 250, 250, .75);
+  --sm: 14px;
+  --md: 16px;
+  --lg: 18px;
+}
+
+@for $i from 1 through 5 {
+  .elevation-#{$i} {
+    box-shadow: #{$i}px #{$i + 1}px #{$i * 4}px rgba(0, 0, 0, 0.2);
+  }
+}

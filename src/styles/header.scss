@@ -1,0 +1,105 @@
+@import "_variables.scss";
+
+.header {
+  position: sticky;
+  top: 0;
+  background-color: var(--main-bg-color);
+  z-index: 100;
+  padding: 0.5rem 1.5rem;
+  border-bottom: 1px solid var(--very-light-pink);
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.main-nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  &__link {
+    text-decoration: none;
+    color: var(--very-light-pink);
+    border: 1px solid var(--white);
+    padding: 8px;
+    text-transform: capitalize;
+    border-radius: 8px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    &:hover {
+      border: 1px solid var(--hospital-green);
+      color: var(--hospital-green);
+    }
+  }
+}
+
+.menu {
+  display: none;
+}
+
+.app-logo {
+  width: 100px;
+}
+
+.navbar-left__list,
+.navbar-right__list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  align-items: center;
+}
+
+.navbar-right__list {
+  list-style: none;
+  gap: 1rem;
+}
+
+.navbar-left {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+.navbar-left__list {
+  margin-left: 12px;
+}
+
+.navbar-email {
+  color: var(--very-light-pink);
+  font-size: var(--sm);
+  margin-right: 12px;
+}
+.navbar-shopping-cart {
+  position: relative;
+  user-select: none;
+  width: 40px;
+  height: 40px;
+  .icon {
+    border-radius: 0;
+  }
+}
+.shooping-cart__items {
+  width: 18px;
+  height: 18px;
+  background-color: var(--hospital-green);
+  border-radius: 50%;
+  font-size: var(--sm);
+  font-weight: bold;
+  position: absolute;
+  top: -6px;
+  right: -3px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+@media (max-width: 768px) {
+  .menu {
+    display: block;
+  }
+  .navbar-left__list {
+    display: none;
+    position: fixed;
+  }
+  .navbar-email {
+    display: none;
+  }
+}

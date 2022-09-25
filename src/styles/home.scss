@@ -1,0 +1,27 @@
+.home {
+  min-height: 100vh;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.products-list {
+  list-style: none;
+  padding: 0 0 2rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+  max-width: 1440px;
+  margin: 0 auto;
+  &__item {
+    flex-basis: 150px;
+  }
+  @media screen and (min-width: 600px) {
+    gap: 1.5rem;
+    &__item {
+      flex-basis: 250px;
+    }
+  }
+}
