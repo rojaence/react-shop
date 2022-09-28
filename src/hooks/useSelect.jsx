@@ -13,5 +13,5 @@ export const useSelect = (initialItems = [], initialSelected = {}) => {
 
   const handleOnChange = (param) => setSelected(param)
 
-  return { items, selected, handleOnChange, setItems }
+  return { items, selected, handleOnChange, setItems, setSelected }
 }

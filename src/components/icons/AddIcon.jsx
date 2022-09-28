@@ -1,5 +1,5 @@
 import React from 'react';
-export default function AddIcon({ size = 40, styleClass = "icon"  }) {
+export default function AddIcon({ size = 40, styleClass = "icon" }) {
   return (
     <svg
       height={size}

@@ -8,6 +8,7 @@ function Input({
   label = "",
   icon = "",
   name = '',
+  value = '',
   iconSize = 32,
   disabled = false,
   customClass = "",
@@ -41,6 +42,7 @@ function Input({
             id={label}
             type={type}
             name={name}
+            value={value}
             placeholder={hint}
             disabled={disabled}
             onChange={onChange}

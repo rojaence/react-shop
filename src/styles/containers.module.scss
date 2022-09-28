@@ -9,6 +9,14 @@
   top: 50px;
   padding: 1rem 0.8rem 0.8rem;
   z-index: 90;
+  align-items: center;
+  &__total {
+    display: block;
+    display: flex;
+    gap: .5rem;
+    margin-left: auto;
+    padding: 0 1rem;
+  }
   @media screen and (min-width: 768px) {
     flex-direction: row;
   }

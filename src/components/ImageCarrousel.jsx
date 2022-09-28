@@ -12,8 +12,8 @@ const ImageCarrousel = ({
 }) => {
   const slideClassStyle = (data) => {
     let classStyle = ["slide"];
-    /* if (data.index > current.index) classStyle.push('slide--right');
-    if (data.index < current.index) classStyle.push('slide--left'); */
+    if (data.index > current.index) classStyle.push('slide--right');
+    if (data.index < current.index) classStyle.push('slide--left');
     if (data.index === current.index) classStyle.push("slide--active");
     return classStyle.join(" ");
   };

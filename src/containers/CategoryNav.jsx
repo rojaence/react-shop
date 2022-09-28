@@ -1,0 +1,22 @@
+import React, { useEffect } from "react";
+import { Link, useParams } from "react-router-dom";
+import "@styles/categoryNav.scss";
+
+const CategoryNav = ({ categories, onClickItem }) => {
+  const {productCategory} = useParams();
+  return (
+    <ul className="category-nav">
+      {categories.map((category) => {
+        return (
+          <li className="category-nav__item" key={`category-${category.id}`}>
+            <Link to={`/${category.name}`} className={`category-nav__link ${category.name === productCategory && 'category-nav__link--active'}`} onClick={onClickItem}>
+              {category.name}
+            </Link>
+          </li>
+        );
+      })}
+    </ul>
+  );
+};
+
+export default CategoryNav;

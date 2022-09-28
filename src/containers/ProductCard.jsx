@@ -8,7 +8,7 @@ import ImageCarrousel from "@components/ImageCarrousel";
 import { useImageCarrousel } from "@hooks/useImageCarrousel";
 
 const ProductCard = ({ data = {}, dense = false, addedToCart = false }) => {
-  const { addToCart, products } = useContext(ProductContext);
+  const { addToCart, newSnackbar } = useContext(ProductContext);
   const imageSlider = useImageCarrousel([]);
 
   useEffect(() => {
@@ -25,6 +25,10 @@ const ProductCard = ({ data = {}, dense = false, addedToCart = false }) => {
     e.stopPropagation();
     try {
       addToCart(data);
+      newSnackbar({
+        message: 'Producto añadido al carrito',
+        color: 'success',
+      })
     } catch (error) {
       console.log(error);
     }

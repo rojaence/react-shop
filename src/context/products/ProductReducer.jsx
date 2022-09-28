@@ -3,7 +3,9 @@ import {
   GET_CATEGORIES,
   ADD_TO_CART,
   DELETE_FROM_CART,
-  DECREASE_ITEM_CART
+  DECREASE_ITEM_CART,
+  NEW_SNACKBAR,
+  CLOSE_SNACKBAR,
 } from "../types";
 
 export default (state, action) => {
@@ -33,6 +35,16 @@ export default (state, action) => {
       return {
         ...state,
         shoopingCart: payload,
+      };
+    case NEW_SNACKBAR:
+      return {
+        ...state,
+        snackbars: payload,
+      };
+    case CLOSE_SNACKBAR:
+      return {
+        ...state,
+        snackbars: payload,
       };
     default:
       return state;

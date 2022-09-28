@@ -12,6 +12,7 @@ import RemoveIcon from "@components/icons/RemoveIcon";
 import AddIcon from "@components/icons/AddIcon";
 import ShoopingCartIcon from "@components/icons/ShoopingCartIcon";
 import ShoopingCartNotificationIcon from "@components/icons/ShoopingCartNotificationIcon";
+import CheckOutlineIcon from '@components/icons/CheckOutlineIcon';
 
 const Icon = ({ name = 'add-to-cart', size = 40, color = '', customClass = '' }) => {
   const iconStyleClass = () => {
@@ -27,8 +28,8 @@ const Icon = ({ name = 'add-to-cart', size = 40, color = '', customClass = '' })
     'added-to-cart': <AddedToCartIcon/>,
     'alert': <AlertIcon size={size} styleClass={iconStyleClass()}/>,
     'chevron': <ChevronIcon/>,
-    'close': <CloseIcon size={size}/>,
-    'email': <EmailIcon/>,
+    'close': <CloseIcon size={size} styleClass={iconStyleClass()}/>,
+    'email': <EmailIcon size={size} styleClass={iconStyleClass()}/>,
     'add':  <AddIcon size={size} styleClass={iconStyleClass()}/>,
     'remove':  <RemoveIcon size={size} styleClass={iconStyleClass()}/>,
     'menu': <MenuIcon styleClass={iconStyleClass()}/>,
@@ -36,6 +37,7 @@ const Icon = ({ name = 'add-to-cart', size = 40, color = '', customClass = '' })
     'search': <SearchIcon size={size} styleClass={iconStyleClass()}/>,
     'shooping-cart': <ShoopingCartIcon styleClass={iconStyleClass()}/>,
     'shooping-cart-notification': <ShoopingCartNotificationIcon/>,
+    'check-outline': <CheckOutlineIcon size={size} styleClass={iconStyleClass()}/>
   }
 
   return (
