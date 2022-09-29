@@ -1,0 +1,39 @@
+.product {
+  display: grid;
+  grid-template-columns: 80px 1fr 50px 90px auto;
+  align-items: center;
+  gap: 1rem;
+  padding: 0 .5rem;
+  &__image {
+    max-width: 100%;
+    border-radius: 5px;
+    box-sizing: border-box;
+    background-color: var(--white);
+  }
+  &__title {
+    color: var(--light-gray);
+  }
+  &__price {
+    font-size: 1.1rem;
+    font-weight: bold;
+    text-align: right;
+  }
+  &__und {
+    opacity: 0.6;
+    font-size: 0.9rem;
+    display: grid;
+    grid-template-areas: 'quantity quantity''removeBtn addBtn';
+    gap: 5px 8px;
+    .quantity {
+      grid-area: quantity;
+      display: block;
+      text-align: center;
+    }
+    .add-button {
+      grid-area: addBtn;
+    }
+    .remove-button {
+      grid-area: removeBtn,
+    }
+  }
+}

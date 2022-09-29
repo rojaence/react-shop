@@ -18,6 +18,7 @@ function Button({
   disabled = false,
   submit = false,
   link = false,
+  title = '',
   color = "",
   iconColor = "",
   onClick = () => {},
@@ -59,6 +60,7 @@ function Button({
       className={buttonClassStyle()}
       type = {submit ? 'submit' : 'button'}
       disabled={disabled}
+      title={title}
       onClick={onClick}
     >
       {icon ? <Icon name={icon} size={iconSize} customClass={iconColor ? `icon--${color}` : ''}/> : null}

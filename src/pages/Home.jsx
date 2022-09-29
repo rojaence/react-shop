@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState, Fragment } from "react";
+import React, { useContext, useEffect, useRef, useState, Fragment } from "react";
 import Header from "@containers/Header";
 import "@styles/home.scss";
 
@@ -9,7 +9,6 @@ import Button from "@components/Button";
 import Icon from "@components/Icon";
 import AsideDrawer from "@containers/AsideDrawer";
 import ShoopingCart from "@containers/ShoopingCart";
-import Snackbar from "@containers/Snackbar";
 import CategoryNav from "@containers/CategoryNav";
 import Spinner from "@components/Spinner";
 import Input from "@components/Input";
@@ -24,10 +23,8 @@ const Home = () => {
   const { productCategory } = useParams();
   const {
     products,
-    snackbars,
     categories,
     getCategories,
-    closeSnackbar,
     getProducts,
     shoopingCart,
     getProductsByCategory,
@@ -42,9 +39,9 @@ const Home = () => {
 
   useEffect(() => {
     const getAllProducts = async (category, categoryItems) => {
-      
       try {
         setLoadingProducts(true);
+        setFilteredProducts([]);
         if (category === "all" || !category) {
           await getProducts();
         } else {
@@ -62,7 +59,7 @@ const Home = () => {
 
     getCategories()
       .then((result) => {
-        setProductNameFilter('');
+        setProductNameFilter("");
         productOrderFilter.setSelected(orderFiltersList[0]);
         getAllProducts(productCategory, result);
       })
@@ -100,19 +97,25 @@ const Home = () => {
   const NoProductItems = () => {
     return (
       <p style={{ textAlign: "center" }}>
-        {`No products in ${productCategory}`}
+        {`No products in '${productCategory}'`}
       </p>
     );
   };
 
   const NoProductsInSearch = () => {
     return (
-      <p style={{ textAlign: "center", maxWidth: '250px', margin: '0 auto', overflowWrap: 'break-word' }}>
-        {`No products found by '${productNameFilter}'`}
+      <p
+        style={{
+          textAlign: "center",
+          maxWidth: "250px",
+          margin: "0 auto",
+          overflowWrap: "break-word",
+        }}
+      >
+        {`No products matching '${productNameFilter}'`}
       </p>
     );
-  }
-
+  };
 
   /*IMPORTANT: Configuración de filtros*/
 
@@ -125,25 +128,33 @@ const Home = () => {
   const productOrderFilter = useSelect(orderFiltersList.slice(), {
     ...orderFiltersList[0],
   });
-  const [productNameFilter, setProductNameFilter] = useState('');
+  const [productNameFilter, setProductNameFilter] = useState("");
   const [filteredProducts, setFilteredProducts] = useState([]);
+  const filterNameInput = useRef(null);
 
   useEffect(() => {
     let items = products
       .slice()
       .filter((product) =>
-        product.title.toLowerCase().includes(productNameFilter.trim().toLowerCase())
+        product.title
+          .toLowerCase()
+          .includes(productNameFilter.trim().toLowerCase())
       );
     setFilteredProducts(items);
-  }, [productNameFilter, products]);
+  }, [productNameFilter]);
 
   useEffect(() => {
     let items = filteredProducts.slice();
-    if (productOrderFilter.selected.value === 'higherCost') items.sort((a, b) => b.price - a.price)
-    else if (productOrderFilter.selected.value === 'lowerCost') items.sort((a, b) => a.price - b.price)
-    else items = products.slice();
+    if (productOrderFilter.selected.value === "higherCost")
+      items.sort((a, b) => b.price - a.price);
+    else if (productOrderFilter.selected.value === "lowerCost")
+      items.sort((a, b) => a.price - b.price);
     setFilteredProducts(items);
-  }, [productOrderFilter.selected, products])
+  }, [productOrderFilter.selected]);
+
+  useEffect(() => {
+    if (productOrderFilter.selected.value === 'mostRecent') setFilteredProducts(products)
+  }, [products])
 
   return (
     <div className="home">
@@ -152,7 +163,10 @@ const Home = () => {
         mainMenuActivator={<MainMenuActivator />}
       ></Header>
       <main className="main">
-        <ProductFilters totalItems={products.length} shown={filteredProducts.length}>
+        <ProductFilters
+          totalItems={products.length}
+          shown={filteredProducts.length}
+        >
           <Input
             hint="Search product"
             icon="search"
@@ -169,14 +183,13 @@ const Home = () => {
           />
         </ProductFilters>
 
-        {loadingProducts && <Spinner size={100} /> }
+        {loadingProducts && <Spinner size={100} />}
         <Fragment>
-        <ul
-          className="products-list"
-          style={{ opacity: loadingProducts ? 0 : 1 }}
-        >
-          {filteredProducts
-            .map((product) => {
+          <ul
+            className="products-list"
+            style={{ opacity: loadingProducts ? 0 : 1 }}
+          >
+            {filteredProducts.map((product) => {
               return (
                 <li
                   className="products-list__item"
@@ -191,12 +204,13 @@ const Home = () => {
                 </li>
               );
             })}
-        </ul>
-        
-          {filteredProducts.length === 0 && !loadingProducts && <NoProductsInSearch/>}
+          </ul>
+
+          {filteredProducts.length === 0 && !loadingProducts && productNameFilter && (
+            <NoProductsInSearch />
+          )}
           {!loadingProducts && products.length === 0 && <NoProductItems />}
         </Fragment>
-        
       </main>
 
       <AsideDrawer
@@ -227,20 +241,8 @@ const Home = () => {
           onClickItem={mainMenuDrawer.hideDrawer}
         />
       </AsideDrawer>
-
-      <Fragment>
-        {snackbars.map((snackbar, index) => {
-          return (
-            <Snackbar
-              {...snackbar}
-              key={snackbar.snackID}
-              closeAction={() => closeSnackbar(snackbar.snackID)}
-              style={{ bottom: ` ${index * 60 + 10}px` }}
-            />
-          );
-        })}
-      </Fragment>
     </div>
+
   );
 };
 

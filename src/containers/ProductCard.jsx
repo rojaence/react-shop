@@ -7,8 +7,11 @@ import ProductContext from "@context/products/ProductContext";
 import ImageCarrousel from "@components/ImageCarrousel";
 import { useImageCarrousel } from "@hooks/useImageCarrousel";
 
+import toast from "react-hot-toast";
+import Snackbar from "@containers/Snackbar";
+
 const ProductCard = ({ data = {}, dense = false, addedToCart = false }) => {
-  const { addToCart, newSnackbar } = useContext(ProductContext);
+  const { addToCart } = useContext(ProductContext);
   const imageSlider = useImageCarrousel([]);
 
   useEffect(() => {
@@ -25,16 +28,26 @@ const ProductCard = ({ data = {}, dense = false, addedToCart = false }) => {
     e.stopPropagation();
     try {
       addToCart(data);
-      newSnackbar({
-        message: 'Producto añadido al carrito',
-        color: 'success',
-      })
+      toast.custom((t) => (
+        <Snackbar
+          show={t.visible}
+          message="Product added to cart"
+          severity="success"
+          closeAction={() => toast.dismiss(t.id)}
+        />
+      ));
     } catch (error) {
       console.log(error);
+      toast.custom((t) => (
+        <Snackbar
+          show={t.visible}
+          message="An error has occurred"
+          severity="error"
+          closeAction={() => toast.dismiss(t.id)}
+        />
+      ));
     }
   };
-
-  // const handleContainerClick = (e) => e.stopPropagation();
 
   return (
     <article
@@ -60,9 +73,6 @@ const ProductCard = ({ data = {}, dense = false, addedToCart = false }) => {
               alt="Product image"
             />
           )}
-          {/* <figcaption className="product-card__cart-message">
-            {addedToCart ? "Added to cart" : "Removed to cart"}
-          </figcaption> */}
         </div>
       </header>
       <div className="product-card__body">
@@ -73,8 +83,9 @@ const ProductCard = ({ data = {}, dense = false, addedToCart = false }) => {
         ) : null}
         {dense ? (
           <Button
-            icon="add-to-cart"
+            icon={addedToCart ? "added-to-cart" : "add-to-cart"}
             fab
+            title='Add to cart'
             color={addedToCart ? "" : "primary"}
             customClass="product-card__add-action-float elevation-1"
             onClick={handleCartBtnClick}

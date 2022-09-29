@@ -20,6 +20,8 @@ $color: #061b28;
   --md: 16px;
   --lg: 18px;
 }
+ 
+// Sobrescribiendo variables para react-toastify
 
 @for $i from 1 through 5 {
   .elevation-#{$i} {
