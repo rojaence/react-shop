@@ -1,5 +1,5 @@
 import React from "react";
-export default function ChevronIcon({ size = 7, styleClass = "icon" }) {
+export default function ChevronIcon({ size = 7, styleClass = "icon", customStyle = {} }) {
   return (
     <svg
       width={size}
@@ -7,6 +7,7 @@ export default function ChevronIcon({ size = 7, styleClass = "icon" }) {
       viewBox={`0 0 ${size} ${size + 5}`}
       className={styleClass}
       fill="none"
+      style={customStyle}
       xmlns="http://www.w3.org/2000/svg"
     >
       <path

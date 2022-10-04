@@ -2,6 +2,7 @@ import React from "react";
 import "@styles/header.scss";
 import UserMenu from "@containers/UserMenu";
 import Logo from "@components/AppLogo";
+import {Link} from "react-router-dom"
 
 const Header = ({ cartActivator, mainMenuActivator }) => {
 
@@ -10,7 +11,9 @@ const Header = ({ cartActivator, mainMenuActivator }) => {
       <nav className="main-nav">
         { mainMenuActivator }
         <div className="navbar-left">
-          <Logo customStyle={{ marginBottom: "0" }} />
+          <Link to='/' style={{ display: 'grid', placeItems: 'center'}}>
+            <Logo customStyle={{ marginBottom: "0" }} />
+          </Link>
         </div>
 
         <div className="navbar-right">

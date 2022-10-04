@@ -85,25 +85,25 @@ const ProductCard = ({ data = {}, dense = false, addedToCart = false }) => {
           <Button
             icon={addedToCart ? "added-to-cart" : "add-to-cart"}
             fab
-            title='Add to cart'
+            title="Add to cart"
             color={addedToCart ? "" : "primary"}
             customClass="product-card__add-action-float elevation-1"
             onClick={handleCartBtnClick}
           />
         ) : null}
       </div>
-      <footer className="product-card__footer" style={{ display: "block" }}>
-        {!dense ? (
+      {!dense ? (
+        <footer className="product-card__footer" style={{ display: "block" }}>
           <Button
-            icon="shooping-cart"
+            icon={addedToCart ? "added-to-cart" : "shooping-cart"}
             color="primary"
             text="Add to cart"
             block
             customClass="product-card__add-action-block"
             onClick={handleCartBtnClick}
           />
-        ) : null}
-      </footer>
+        </footer>
+      ) : null}
     </article>
   );
 };

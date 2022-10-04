@@ -1,0 +1,23 @@
+.profile {
+  max-width: 400px;
+  margin: 0 auto; 
+  &__title {
+    margin-top: 3rem;
+    margin-bottom: 2rem;
+  }
+  .form {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1.5rem;
+    &__actions {
+      margin-top: 1.5rem;
+      display: flex;
+      justify-content: right;
+      width: 100%;
+      .submit-button {
+        flex-basis: 100%;
+      }
+    }
+  }
+}

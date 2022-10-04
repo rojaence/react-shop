@@ -1,4 +1,5 @@
 import React, { useContext, Fragment, useEffect, useState } from "react";
+import { Link } from "react-router-dom"
 import Button from "@components/Button";
 import CartItem from "@containers/CartItem";
 import "@styles/shoopingCart.scss";
@@ -41,13 +42,15 @@ const ShoopingCart = () => {
           <span>Total</span>
           <span>$ {totalCart.toFixed(2)}</span>
         </div>
-        <Button
-          text="Checkout"
-          disabled={shoopingCart.size === 0}
-          block
-          color="primary"
-          customClass="checkout-button"
-        />
+        <Link to='/checkout' className={`${ totalCart > 0 ? 'app-link' : 'app-link app-link--disabled'}`}>
+          <Button
+            text="Checkout"
+            disabled={shoopingCart.size === 0}
+            block
+            color="primary"
+            customClass="checkout-button"
+          />
+        </Link>
       </div>
     </div>
   );

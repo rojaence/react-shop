@@ -1,0 +1,65 @@
+.costumer-order {
+  min-height: 100vh;
+  width: 100%;
+  &__header {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 1rem;
+    height: 65px;
+    align-items: center;
+  }
+  &__title {
+    margin: 2rem 0;
+    align-self: flex-start;
+  }
+  &__list {
+    list-style: none;
+    padding: 0;
+    margin-top: 3rem;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem; 
+  }
+
+  &__checkout {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 500px;
+    margin: 0 auto;
+    padding: 0 1rem 1rem;
+  }
+  .icon path {
+    fill: var(--white);
+    stroke: var(--white);
+  }
+}
+
+.total-order {
+  background-color: var(--text-input-field);
+  padding: 1rem 2rem;
+  border-radius: 8px;
+  display: grid;
+  gap: .5rem;
+  width: 100%;
+  box-sizing: border-box;
+  grid-template-areas:
+    "totalDate totalPrice"
+    "totalCount totalPrice";
+  &__date, &__count, &__price {
+    display: grid;
+  }
+  &__date, &__count {
+    place-items: center left;
+  }
+  &__price {
+    grid-area: totalPrice;
+    place-items: center right;
+  }
+  &__date {
+    grid-area: totalDate;
+  }
+  &__count {
+    grid-area: totalCount;
+  }
+}

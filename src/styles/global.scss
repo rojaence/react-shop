@@ -13,8 +13,11 @@ body {
 }
 
 .layout {
-  height: 100%;
-  width: 100%;
+  min-width: 100%;
+  min-height: 100vh;
+  position: relative;
+  display: flex;
+  flex-direction: column;
   &--flex {
     display: flex;
     flex-direction: column;
@@ -28,6 +31,7 @@ body {
   width: 100%;
   box-sizing: border-box;
 }
+
 .scrollbar-none {
   &::-webkit-scrollbar {
     display: none;
@@ -46,5 +50,13 @@ body {
   }
   &--white {
     fill: var(--white);
+  }
+}
+
+.app-link {
+  text-decoration: none;
+  &--disabled {
+    pointer-events: none;
+    cursor: not-allowed;
   }
 }

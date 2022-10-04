@@ -14,6 +14,7 @@ const ProductState = (props) => {
   const initialState = {
     products: [],
     categories: [],
+    selectedCategory: '',
     snackbars: [],
     shoopingCart: new Map(),
   };
@@ -75,6 +76,7 @@ const ProductState = (props) => {
     const options = { method: "GET" };
     const request = await fetch(`${baseURL}/categories/${categoryId}/products`, options);
     const response = await request.json();
+    
     dispatch({ type: GET_PRODUCTS, payload: response });
   };
 

@@ -2,10 +2,10 @@
   max-width: 400px;
   position: relative;
   border-radius: 8px;
-  overflow: hidden;
-  &__slot, &__icon, &__prepend-icon, &__input {
-    background-color: var(--text-input-field);
-  }
+  // overflow: hidden;
+  /* &__slot, &__icon, &__prepend-icon, &__input {
+    // background-color: var(--text-input-field);
+  } */
   &__slot {
     display: flex;
     height: 100%;
@@ -20,6 +20,7 @@
     font-size: 1rem;
     padding: 6px;
     height: 40px;
+    border-radius: 8px;
     box-sizing: border-box;
     &::placeholder {
       font-weight: 700;
@@ -29,7 +30,6 @@
   &__label {
     font-size: var(--sm);
     font-weight: bold;
-    margin-bottom: 4px;
   }
   &--error {
     .field__input {
@@ -37,6 +37,12 @@
     }
     .field__label {
       color: var(--error-color);
+    }
+    .field__error-message {
+      color: var(--error-color);
+      position: absolute;
+      bottom: 0;
+      right: 0;
     }
   }
   &__prepend-icon {
@@ -46,6 +52,12 @@
     .icon {
       opacity: 0.5;
     }
+  }
+  &--disabled {
+    opacity: 0.6;
+  }
+  &--block {
+    width: 100%;
   }
   @media screen and (min-width: 768px) {
     width: 400px;

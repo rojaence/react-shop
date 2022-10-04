@@ -63,8 +63,7 @@
     user-select: none;
     text-align: right;
     cursor: pointer;
-    padding: 0.5rem 0.8rem;
-    transition: background-color 0.15s;
+    // transition: background-color 0.15s;
     &:hover {
       background-color: var(--very-light-gray);
     }
@@ -80,11 +79,24 @@
       height: 1px;
       padding: 0;
       margin: 1rem 0.5rem;
+      cursor: auto;
+      &:hover {
+        background-color: var(--very-light-pink);;
+      }
       background-color: var(--very-light-pink);
     }
   }
   &--active {
     transform: scaleY(1);
     opacity: 1;
+  }
+  &__link {
+    padding: 0.5rem 0.8rem;
+    box-sizing: border-box;
+    text-decoration: none;
+    color: inherit;
+    width: 100%;
+    height: 100%;
+    display: block;
   }
 }

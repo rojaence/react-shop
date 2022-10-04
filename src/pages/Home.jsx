@@ -1,15 +1,10 @@
 import React, { useContext, useEffect, useRef, useState, Fragment } from "react";
-import Header from "@containers/Header";
 import "@styles/home.scss";
 
 import ProductFilters from "@containers/ProductFilters";
 import ProductCard from "@containers/ProductCard";
 
-import Button from "@components/Button";
-import Icon from "@components/Icon";
 import AsideDrawer from "@containers/AsideDrawer";
-import ShoopingCart from "@containers/ShoopingCart";
-import CategoryNav from "@containers/CategoryNav";
 import Spinner from "@components/Spinner";
 import Input from "@components/Input";
 import Select from "@components/Select";
@@ -23,7 +18,6 @@ const Home = () => {
   const { productCategory } = useParams();
   const {
     products,
-    categories,
     getCategories,
     getProducts,
     shoopingCart,
@@ -32,10 +26,7 @@ const Home = () => {
 
   const [productInfo, setProductInfo] = useState({});
   const [loadingProducts, setLoadingProducts] = useState(false);
-
-  const cartDrawer = useAsideDrawer(false);
   const productInfoDrawer = useAsideDrawer(false);
-  const mainMenuDrawer = useAsideDrawer(false);
 
   useEffect(() => {
     const getAllProducts = async (category, categoryItems) => {
@@ -60,6 +51,7 @@ const Home = () => {
     getCategories()
       .then((result) => {
         setProductNameFilter("");
+        filterNameInput.current.value = '';
         productOrderFilter.setSelected(orderFiltersList[0]);
         getAllProducts(productCategory, result);
       })
@@ -74,24 +66,6 @@ const Home = () => {
   const closeProdInfoDrawer = () => {
     setProductInfo({});
     productInfoDrawer.hideDrawer();
-  };
-
-  const CartActivator = () => {
-    return (
-      <li
-        className="navbar-right__item navbar-shopping-cart elevation-1 button button--flat button--fab"
-        onClick={() => cartDrawer.showDrawer()}
-      >
-        <Icon name="shooping-cart" customClass={"menu"} />
-        <div className="shooping-cart__items">{shoopingCart.size}</div>
-      </li>
-    );
-  };
-
-  const MainMenuActivator = () => {
-    return (
-      <Button icon="menu" flat onClick={() => mainMenuDrawer.showDrawer()} />
-    );
   };
 
   const NoProductItems = () => {
@@ -158,11 +132,6 @@ const Home = () => {
 
   return (
     <div className="home">
-      <Header
-        cartActivator={<CartActivator />}
-        mainMenuActivator={<MainMenuActivator />}
-      ></Header>
-      <main className="main">
         <ProductFilters
           totalItems={products.length}
           shown={filteredProducts.length}
@@ -171,7 +140,8 @@ const Home = () => {
             hint="Search product"
             icon="search"
             iconSize={24}
-            value={productNameFilter}
+            ref={filterNameInput}
+            id='name-filter'
             onChange={(e) => setProductNameFilter(e.target.value)}
             customClass="elevation-1"
           />
@@ -211,15 +181,6 @@ const Home = () => {
           )}
           {!loadingProducts && products.length === 0 && <NoProductItems />}
         </Fragment>
-      </main>
-
-      <AsideDrawer
-        title="Shooping cart"
-        show={cartDrawer.isOpen}
-        closeAction={cartDrawer.hideDrawer}
-      >
-        <ShoopingCart />
-      </AsideDrawer>
 
       <AsideDrawer
         show={productInfoDrawer.isOpen}
@@ -228,21 +189,7 @@ const Home = () => {
       >
         <ProductCard data={productInfo} />
       </AsideDrawer>
-
-      <AsideDrawer
-        title="Categories"
-        show={mainMenuDrawer.isOpen}
-        closeAction={mainMenuDrawer.hideDrawer}
-        nav
-        left
-      >
-        <CategoryNav
-          categories={categories}
-          onClickItem={mainMenuDrawer.hideDrawer}
-        />
-      </AsideDrawer>
     </div>
-
   );
 };
 

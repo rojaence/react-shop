@@ -28,6 +28,7 @@ const Icon = ({ name = 'add-to-cart', size = 40, color = '', customClass = '' })
     'added-to-cart': <AddedToCartIcon/>,
     'alert': <AlertIcon size={size} styleClass={iconStyleClass()}/>,
     'chevron': <ChevronIcon/>,
+    'chevron-left': <ChevronIcon customStyle={{transform: 'rotate(180deg)'}}/>,
     'close': <CloseIcon size={size} styleClass={iconStyleClass()}/>,
     'email': <EmailIcon size={size} styleClass={iconStyleClass()}/>,
     'add':  <AddIcon size={size} styleClass={iconStyleClass()}/>,

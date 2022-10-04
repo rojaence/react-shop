@@ -59,6 +59,10 @@
     background-color: transparent;
     color: var(--primary-color);
     border: none;
+    .icon path {
+      fill: var(--primary-color);
+      stroke: var(--primary-color);
+    }
   }
   &--block {
     width: 100%;
@@ -72,6 +76,7 @@
     }
   }
   &--primary {
+    background-color: var(--primary-color);
     .icon path {
       fill: var(--white);
     }
@@ -81,3 +86,4 @@
     border-color: var(--error-color);
   }
 }
+

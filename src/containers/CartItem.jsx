@@ -40,6 +40,7 @@ const CartItem = ({ data = {} }) => {
         iconSize={24}
         flat
         fab
+        customClass='delete-button'
         onClick={() => deleteFromCart(data)}
       />
     </li>
