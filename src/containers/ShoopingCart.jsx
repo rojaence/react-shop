@@ -1,5 +1,5 @@
 import React, { useContext, Fragment, useEffect, useState } from "react";
-import { Link } from "react-router-dom"
+import { Link } from "react-router-dom";
 import Button from "@components/Button";
 import CartItem from "@containers/CartItem";
 import "@styles/shoopingCart.scss";
@@ -8,8 +8,7 @@ import ProductContext from "@context/products/ProductContext";
 
 const ShoopingCart = () => {
   const [totalCart, setTotalCart] = useState(0);
-  const { shoopingCart, deleteFromCart, addToCart, decreaseItemCart } =
-    useContext(ProductContext);
+  const { shoopingCart } = useContext(ProductContext);
 
   useEffect(() => {
     let total = 0;
@@ -42,7 +41,12 @@ const ShoopingCart = () => {
           <span>Total</span>
           <span>$ {totalCart.toFixed(2)}</span>
         </div>
-        <Link to='/checkout' className={`${ totalCart > 0 ? 'app-link' : 'app-link app-link--disabled'}`}>
+        <Link
+          to="/checkout"
+          className={`${
+            totalCart > 0 ? "app-link" : "app-link app-link--disabled"
+          }`}
+        >
           <Button
             text="Checkout"
             disabled={shoopingCart.size === 0}
