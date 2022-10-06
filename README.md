@@ -5,7 +5,7 @@ A solution to the [Platzi - React practice course](https://platzi.com/cursos/rea
 This is a simple Frontend app that simulates a client for an e-commerce using  
 the [Platzi Fake Store API](https://fakeapi.platzi.com/)
 
-Project live site URL: [GH Pages - Live site](#)
+Project live site URL: [GH Pages - Live site](https://rojaence.github.io/react-shop/)
 
 ## Table of contents
 
@@ -69,7 +69,7 @@ Users should be able to:
 
 ### Links
 
-- Live site URL: [GH Pages - Live site](#)
+- Live site URL: [GH Pages - Live site](https://rojaence.github.io/react-shop/)
 
 ## My process
 
