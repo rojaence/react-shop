@@ -2,7 +2,7 @@
 
 A solution to the [Platzi - React practice course](https://platzi.com/cursos/react-practico/).
 
-This is a simple Frontend app that simulate a client to an e-commerce using  
+This is a simple Frontend app that simulates a client for an e-commerce using  
 the [Platzi Fake Store API](https://fakeapi.platzi.com/)
 
 Project live site URL: [GH Pages - Live site](#)
@@ -46,7 +46,26 @@ Users should be able to:
   - checkout
   - category
 
-### Screenshots
+### Screenshots  
+
+#### Desktop    
+
+![](src/assets/screenshots/home-desktop.png)  
+
+![](src/assets/screenshots/cart-desktop.png)  
+
+![](src/assets/screenshots/details-desktop.png)  
+
+![](src/assets/screenshots/categories-desktop.png)  
+
+![](src/assets/screenshots/checkout-desktop.png)  
+
+
+#### Mobile  
+
+![](src/assets/screenshots/mobile1.png)
+
+![](src/assets/screenshots/mobile2.png)  
 
 ### Links
 
