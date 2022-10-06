@@ -1,0 +1,23 @@
+.not-found {
+  max-width: 300px;
+  height: 100%;
+  justify-content: center;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* .icon {
+    width: 200px;
+    height: 200px;
+  } */
+  &__message {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 2.5rem;
+    margin: 0 0 2rem;
+    &--error {
+      font-size: 5rem;
+    }
+  }
+}

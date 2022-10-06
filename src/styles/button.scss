@@ -1,0 +1,89 @@
+.button {
+  background-color: var(--hospital-green);
+  border-radius: 8px;
+  color: var(--white);
+  padding: 0 1.5rem;
+  cursor: pointer;
+  font-size: var(--md);
+  font-weight: bold;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  transition: filter 0.15s, color 0.15s;
+  border: 2px solid var(--hospital-green);
+  box-sizing: border-box;
+  &:hover {
+    filter: brightness(1.05);
+  }
+  &:active {
+    filter: brightness(1.1);
+  }
+  &--outlined {
+    background-color: transparent;
+    color: var(--hospital-green);
+    /* &:hover {
+      color: var(--white);
+      background-color: var(--hospital-green);
+    } */
+  }
+  &--rounded {
+    border-radius: 2rem;
+  }
+  &--autohide {
+    opacity: 0;
+  }
+  &--autohide-icon {
+    .icon {
+      opacity: 0;
+    }
+  }
+  &--fab {
+    border-radius: 50%;
+    width: 35px;
+    height: 35px;
+    .icon {
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+    }
+    padding: 0;
+  }
+  &--flat {
+    background-color: transparent;
+    border-color: transparent;
+    color: var(--dark-blue);
+  }
+  &--link {
+    background-color: transparent;
+    color: var(--primary-color);
+    border: none;
+    .icon path {
+      fill: var(--primary-color);
+      stroke: var(--primary-color);
+    }
+  }
+  &--block {
+    width: 100%;
+  }
+  &--disabled {
+    cursor: not-allowed;
+    opacity: 0.5;
+    &:active,
+    &:hover {
+      filter: none;
+    }
+  }
+  &--primary {
+    background-color: var(--primary-color);
+    .icon path {
+      fill: var(--white);
+    }
+  }
+  &--error {
+    background-color: var(--error-color);
+    border-color: var(--error-color);
+  }
+}
+

@@ -1,0 +1,100 @@
+@import './variables';
+
+.product-card {
+  border-radius: 8px;
+  padding: .5rem;
+  transition: box-shadow .15s;
+  box-sizing: border-box;
+  cursor: pointer;
+  min-width: 170px;
+  &__header {
+    height: 180px;
+  }
+  &__figure,
+  &__image {
+    height: 180px;
+    border-radius: 10px;
+  }
+  &__figure {
+    margin: 0;
+    display: grid;
+    place-items: center;
+    position: relative;
+  }
+  &__image {
+    max-width: 100%;
+    object-fit: cover;
+  }
+  &__body {
+    display: grid;
+    grid-template-areas: "cost addAction" "productName addAction" "description description";
+    grid-template-columns: 1fr auto;
+    gap: 5px;
+    margin-top: 1rem;
+  }
+  &__cost {
+    grid-area: cost;
+    font-weight: bold;
+    font-size: 1rem;
+  }
+  &__add-action-float {
+    grid-area: addAction;
+    border: none;
+    .icon {
+      transform: scale(1.2);
+    }
+  }
+  &__name {
+    grid-area: productName;
+    font-size: 1rem;
+    color: var(--light-gray);
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    margin: 0;
+  }
+  &__description {
+    grid-area: description;
+  }
+  &__footer {
+    display: flex;
+    justify-content: right;
+  }
+  &--dense {
+    .product-card__footer {
+      display: none;
+    }
+    cursor: pointer;
+    &:hover {
+      @extend .elevation-2;
+    }
+  }
+  &--expanded {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    cursor: auto;
+    max-height: 1000px;
+    z-index: 100;
+    .product-card__header {
+      width: 100%;
+      flex-basis: 450px;
+      position: relative;
+      
+    }
+    .product-card__body {
+      padding: 1rem;
+      font-size: 1.15rem;
+    }
+    .product-card__cost, .product-card__name {
+      font-size: 1.1rem;
+    }
+    .product-card__figure {
+      width: 100%;
+      height: 100%;
+    }
+    .product-card__footer {
+      margin-top: auto;
+    }
+  }
+}

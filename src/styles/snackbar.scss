@@ -1,0 +1,62 @@
+@import '_variables.scss';
+
+.snackbar {
+  @extend .elevation-2;
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  grid-template-rows: 1fr;
+  gap: 1rem;
+  background-color: var(--primary-color);
+  border-radius: 8px;
+  padding: .8rem 1rem;
+  align-items: center;
+  color: var(--white);
+  .icon {
+    fill: var(--white);
+    // animation: pop .4s forwards;
+  }
+  &__message {
+    font-size: 1.1rem;
+    margin: 0;
+  }
+  &--error {
+    background-color: var(--error-color);
+  }
+  &--success {
+    background-color: var(--success-color);
+  }
+  &--warning {
+    background-color: var(--warning-color);
+  }
+  // transform-origin: left;
+}
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translateX(-100%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes fadeOut {
+  0% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  100% {
+    opacity: 0;
+    transform: translateX(-100%);
+  }
+}
+
+@keyframes pop {
+  0% {
+    transform: scale(0);
+  }
+  100% {
+    transform: scale(1);
+  }
+}

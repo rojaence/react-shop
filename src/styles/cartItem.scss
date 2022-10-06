@@ -1,0 +1,62 @@
+.product {
+  display: grid;
+  grid-template-areas: 
+    'itemImg itemName itemName deleteBtn'
+    'itemImg itemUnits itemPrice itemPrice';
+  grid-template-columns: 80px 1fr auto auto;
+  grid-template-rows: repeat(2, auto);
+  align-items: center;
+  gap: 1rem;
+  padding: 0 .5rem;
+  @media screen and (min-width: 768px) {
+    grid-template-areas: 'itemImg itemName itemUnits itemPrice deleteBtn';
+    grid-template-rows: 1fr;
+    grid-template-columns: 80px 1fr 50px 90px auto;
+  }
+  &__image {
+    max-width: 100%;
+    border-radius: 5px;
+    box-sizing: border-box;
+    background-color: var(--white);
+    grid-area: itemImg;
+  }
+  &__title {
+    color: var(--light-gray);
+    grid-area: itemName;
+  }
+  &__price {
+    font-size: 1.1rem;
+    font-weight: bold;
+    text-align: right;
+    grid-area: itemPrice;
+  }
+  .delete-button {
+    grid-area: deleteBtn;
+  }
+  &__und {
+    grid-area: itemUnits;
+    opacity: 0.6;
+    font-size: 0.9rem;
+    display: grid;
+    grid-template-areas: 'removeBtn quantity addBtn';
+    justify-items: center;
+    gap: 5px 8px;
+    .quantity {
+      grid-area: quantity;
+      display: block;
+      text-align: center;
+    }
+    .add-button {
+      grid-area: addBtn;
+    }
+    .remove-button {
+      grid-area: removeBtn,
+    }
+    @media screen and (min-width: 768px) {
+      grid-template-areas: 'quantity quantity''removeBtn addBtn';
+    }
+  }
+  path {
+    fill: var(--dark-blue) !important;
+  }
+}

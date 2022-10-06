@@ -1,0 +1,62 @@
+@import './variables';
+
+body {
+  background-color: $base-color;
+  color: $color;
+  margin: 0;
+  font-family: 'Quicksand', sans-serif;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  overflow-y: scroll;
+}
+
+.layout {
+  min-width: 100%;
+  min-height: 100vh;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  &--flex {
+    display: flex;
+    flex-direction: column;
+    @media screen and (min-width: 768px) {
+      flex-direction: row;
+    }
+  }
+}
+
+.main {
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.scrollbar-none {
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+.icon {
+  &--error {
+    fill: var(--error-color);
+  }
+  &--success {
+    fill: var(--success-color);
+  }
+  &--primary {
+    fill: var(--primary-color);
+  }
+  &--white {
+    fill: var(--white);
+  }
+}
+
+.app-link {
+  text-decoration: none;
+  &--disabled {
+    pointer-events: none;
+    cursor: not-allowed;
+  }
+}
