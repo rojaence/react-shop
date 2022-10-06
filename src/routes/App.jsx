@@ -42,30 +42,8 @@ const App = () => {
     },
   };
 
-  const UserDashboard = () => {
-    return (
-      <Fragment>
-        <h2>Dashboard del usuario</h2>
-        <Outlet/>
-      </Fragment>
-    )
-  }
-
-  const UserOrders = () => {
-    return (
-      <div>
-        <h3>Órdenes del usuario</h3>
-        <ul>
-          <li>My order 1</li>
-          <li>My order 2</li>
-          <li>My order 3</li>
-        </ul>
-      </div>
-    )
-  }
-
   return (
-    <BrowserRouter>
+    <BrowserRouter basename="/react-shop">
       <ProductState>
         <Layout>
           <Routes>
@@ -73,9 +51,7 @@ const App = () => {
               <Route path=":productCategory" element={<Home />} />
             </Route>
             <Route path="/checkout" element={<Checkout />} />
-            <Route path="/account">
-              <Route index element={<UserAccount/>}/>
-              <Route path="orders" element={<UserOrders/>}/>
+            <Route path="/account" element={<UserAccount/>}>
             </Route>
             <Route path="/login" element={<Login />} />
             <Route path="/recovery-password" element={<RecoveryPassword />} />
