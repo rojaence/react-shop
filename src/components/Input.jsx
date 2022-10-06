@@ -30,17 +30,17 @@ const Input = forwardRef(function Input( {
   return (
     <Fragment>
       <div tabIndex={0} className={inputStyleClass()}>
-        {label ? (
+        {label && (
           <label className="field__label" htmlFor={id}>
             {label}
           </label>
-        ) : null}
+        )}
         <div className="field__slot">
-          {icon ? (
+          {icon && (
             <label className="field__prepend-icon" htmlFor={id}>
               <Icon name={icon} size={iconSize} />
             </label>
-          ) : null}
+          )}
           <input
             className="field__input"
             ref={ref}

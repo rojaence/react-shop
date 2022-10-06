@@ -64,7 +64,7 @@ const Checkout = () => {
           </span>
         )}
         <Link to='/' className="app-link" style={{ marginTop: '3rem' }}>
-          <Button text='Ver más productos' icon='chevron-left' color='primary'/>
+          <Button text='More products' icon='chevron-left' color='primary'/>
         </Link>
       </section>
     </div>

@@ -11,7 +11,9 @@ const ProductFilters = ({ children, totalItems = 0, shown = 0 }) => {
           <span className={styles["product-filters__total--numbers"]}>
           {`${shown} - ${totalItems}`}
           </span>
-          Products
+          <span className={styles["product-filters__total--label"]}>
+            Prod.
+          </span>
         </p>
       </div>
     </div>

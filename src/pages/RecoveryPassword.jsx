@@ -8,8 +8,8 @@ import '@styles/login.scss'
 const RecoveryPassword = () => {
   return (
     <div className='login'>
+      <AppLogo size={150} customStyle={{ marginBotton: '48px' }}></AppLogo>
       <div className='form-container'>
-        <AppLogo size={110} customStyle={{ marginBotton: '48px' }}></AppLogo>
         <h1 className='title'>Password recovery</h1>
         <h2 className='subtitle'>
           Inform the email address used to create your account
@@ -17,7 +17,9 @@ const RecoveryPassword = () => {
         <form action="/recovery-sent" className='form'>
           <Input type='email' hint='camilayokoo@gmail.com' 
           label='Email address' id='user-email'/>
-          <Button text='Submit'/>
+          <Link className='button' style={{ marginTop: '1.5rem' }} to='/recovery-sent'>
+            Submit
+          </Link>
           <Link className='form__link' to={'/login'}>
             Back to log in
           </Link>

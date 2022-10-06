@@ -2,7 +2,10 @@
 
 A solution to the [Platzi - React practice course](https://platzi.com/cursos/react-practico/).
 
-This is a simple Frontend app that simulate a client to a online store
+This is a simple Frontend app that simulate a client to an e-commerce using  
+the [Platzi Fake Store API](https://fakeapi.platzi.com/)
+
+Project live site URL: [GH Pages - Live site](#)
 
 ## Table of contents
 
@@ -18,6 +21,7 @@ This is a simple Frontend app that simulate a client to a online store
   - [Drawer](#Drawer)
   - [Carousel](#carousel)
   - [Snackbar](#snackbar)
+- [Continued development](#continued-development)
 - [Author](#author)
 
 ## Overview
@@ -46,7 +50,7 @@ Users should be able to:
 
 ### Links
 
-- Live site URL: [GH Pages - Live preview](#)
+- Live site URL: [GH Pages - Live site](#)
 
 ## My process
 
@@ -248,6 +252,13 @@ const handleCartBtnClick = (e) => {
       ));
     }
 ```
+
+## Continued development
+
+More API functions could be integrated like:
+- Authentication with JWT
+- Get products with pagination
+- Manage user profile data (GET, CREATE, UPDATE)
 
 ## Author
 

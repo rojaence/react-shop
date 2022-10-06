@@ -1,6 +1,5 @@
 .product-filters {
   display: flex;
-  flex-direction: column;
   flex-wrap: wrap;
   gap: 1rem;
   max-width: 1440px;
@@ -10,15 +9,25 @@
   padding: 0.8rem;
   z-index: 90;
   align-items: center;
+  flex-wrap: wrap;
+  box-sizing: border-box;
   &__total {
     display: block;
     display: flex;
     gap: .5rem;
     margin-left: auto;
     padding: 0 1rem;
+    &--label {
+      display: none
+    }
   }
   @media screen and (min-width: 768px) {
     flex-direction: row;
+    &__total {
+      &--label {
+        display: block;
+      }
+    }
   }
 }
 
@@ -29,6 +38,7 @@
   top: 50px;
   z-index: 90;
   backdrop-filter: blur(20px);
+  box-sizing: border-box;
 }
 
 .main-wrapper {

@@ -22,7 +22,6 @@ const Layout = ({ children }) => {
   useEffect(() => {
     cartDrawer.hideDrawer();
     let newLocationParam = location.pathname.substring(1).toLowerCase();
-    let newCategory = "all";
     if (newLocationParam != "")
       if (categories.length > 0) {
         let categoryMatch = categories.find(
@@ -64,12 +63,13 @@ const Layout = ({ children }) => {
       <Fragment>
         {allowBackMatching() ? (
           <Link className="app-link" to="/">
-            <Button icon="chevron-left" flat text="Home" />
+            <Button icon="chevron-left" flat text="Home" customStyle={{ padding: '.2rem' }}/>
           </Link>
         ) : (
           <Button
             icon="menu"
             flat
+            customStyle={{ padding: '.2rem' }}
             onClick={() => mainMenuDrawer.showDrawer()}
           />
         )}

@@ -57,8 +57,8 @@ const Login = () => {
 
   return (
     <div className='login'>
+      <AppLogo size={200} customStyle={{ marginBottom: '48px' }}/>
       <div className='form-container'>
-        <AppLogo size={150} customStyle={{ marginBottom: '48px' }}/>
         <form action='/' className='form' ref={loginForm}>
           <Input error={validationForm.error || !validEmail.valid} errorMessage={validEmail.message} type='email' name='email' hint='camilayokoo@gmail.com' label='Email address' id='user-email'/>
           <Input error={validationForm.error} type='password' name='password' hint='*********' label='Password' id='user-password'/>
@@ -69,8 +69,8 @@ const Login = () => {
           <Link className='form__link' to={'/recovery-password'}>
             Forgot my password
           </Link>
+          <Button text='Sign in' block outlined/>
         </form>
-        <Button text='Sign in' block outlined/>
       </div>
     </div>
   )

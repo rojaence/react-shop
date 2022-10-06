@@ -91,8 +91,6 @@ const Home = () => {
     );
   };
 
-  /*IMPORTANT: Configuración de filtros*/
-
   const orderFiltersList = [
     { text: "Most recent", value: "mostRecent" },
     { text: "Higher cost", value: "higherCost" },

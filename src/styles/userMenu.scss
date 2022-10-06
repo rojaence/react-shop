@@ -5,8 +5,9 @@
   align-items: baseline;
   transition: background-color 0.15s;
   border-radius: 8px;
+  box-sizing: border-box;
   &__control {
-    padding: 0.4rem 1rem;
+    padding: 0.4rem 0.8rem;
     display: flex;
     align-items: center;
     gap: 0.5rem;

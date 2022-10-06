@@ -7,14 +7,14 @@ import '@styles/recoveryPassword.scss'
 const RecoverySent = () => {
   return (
     <div className="login">
-      <div className="form-container">
-        <AppLogo size={150}/>
+      <AppLogo size={150}/>
+      <div className="form">
         <h1 className="title">Email has been sent!</h1>
         <p className="subtitle">
           Please check your inbox for instructions on how to reset the password
         </p>
         <div className="email-image">
-          <Icon name="email"/>
+          <Icon name="email" size={90} color='primary'/>
         </div>
         <Link className="button login-button" to={'/login'}>
           Login

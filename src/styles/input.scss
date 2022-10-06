@@ -1,11 +1,12 @@
 .field {
-  max-width: 400px;
+  width: 100%;
   position: relative;
   border-radius: 8px;
-  // overflow: hidden;
-  /* &__slot, &__icon, &__prepend-icon, &__input {
-    // background-color: var(--text-input-field);
-  } */
+  max-height: 40px;
+  &__slot, &__icon, &__prepend-icon, &__input {
+    border-radius: 8px;
+    background-color: var(--white);
+  }
   &__slot {
     display: flex;
     height: 100%;
@@ -30,6 +31,8 @@
   &__label {
     font-size: var(--sm);
     font-weight: bold;
+    display: block;
+    margin-bottom: 3px;
   }
   &--error {
     .field__input {
@@ -61,6 +64,6 @@
     width: 100%;
   }
   @media screen and (min-width: 768px) {
-    width: 400px;
+    width: 450px;
   }
 }

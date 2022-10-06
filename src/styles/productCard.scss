@@ -6,6 +6,7 @@
   transition: box-shadow .15s;
   box-sizing: border-box;
   cursor: pointer;
+  min-width: 170px;
   &__header {
     height: 180px;
   }
