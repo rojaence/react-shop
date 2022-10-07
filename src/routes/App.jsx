@@ -1,5 +1,5 @@
-import React, { Fragment } from "react";
-import { BrowserRouter, Routes, Route, Outlet } from "react-router-dom";
+import React from "react";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import "@styles/global.scss";
 import Layout from "@containers/Layout";
 import Login from "@containers/Login";
