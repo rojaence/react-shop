@@ -1,5 +1,5 @@
 import React from "react";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, HashRouter, Routes, Route } from "react-router-dom";
 import "@styles/global.scss";
 import Layout from "@containers/Layout";
 import Login from "@containers/Login";
@@ -43,7 +43,7 @@ const App = () => {
   };
 
   return (
-    <BrowserRouter basename="/react-shop">
+    <HashRouter>
       <ProductState>
         <Layout>
           <Routes>
@@ -62,7 +62,7 @@ const App = () => {
         </Layout>
         <Toaster position="bottom-left" toastOptions={appToastOptions} />
       </ProductState>
-    </BrowserRouter>
+    </HashRouter>
   );
 };
 
